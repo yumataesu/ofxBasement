@@ -24,11 +24,10 @@ public:
     
     template<typename type, typename ... arguments>
     static void register_(const std::string& name) {
+		registered_names().push_back(name);
         ctor_map()[name] = [](arguments&& ... args) {
             return std::make_shared<type>(std::forward<arguments>(args)...);
         };
-        
-        registered_names().push_back(name);
     }
     
     template <typename ... arguments>
