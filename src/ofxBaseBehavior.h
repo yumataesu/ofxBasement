@@ -11,7 +11,7 @@ namespace Base {
 class Behavior {
 public:
     virtual ~Behavior() {};
-    virtual void update(const float& delta_time) = 0;
+    virtual void update(const double& delta_time) = 0;
     virtual void draw() {};
     
 	void setName(const std::string& name) { name_ = name; }

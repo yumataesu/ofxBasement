@@ -42,9 +42,10 @@ public:
 		process_map.erase(name);
     }
 
-    virtual void update(const float& delta_time) {
+    virtual void update(ofEventArgs& args) {
+		delta_time_ = ofGetLastFrameTime();
         for(const auto& c : process_map) {
-            c.second->update(delta_time);
+            c.second->update(delta_time_);
         }
     }
     
@@ -82,6 +83,7 @@ protected:
     }
 
     std::map<std::string, ref> process_map;
+	double delta_time_;
 };
 }
 }
