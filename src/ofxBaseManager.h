@@ -49,9 +49,9 @@ public:
         }
     }
     
-    void drawGui(ofxImGui::Settings& settings) {
+    void drawGui() {
         for(const auto& c : process_map) {
-            c.second->drawGui(settings);
+            c.second->drawGui();
         }
     }
     
