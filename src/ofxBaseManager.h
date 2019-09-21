@@ -23,7 +23,7 @@ public:
     virtual ~BaseManager(){}
     
     template<typename type, typename ... arguments>
-    static void register_(const std::string& name, arguments&& ... args) {
+    static void registration(const std::string& name, arguments&& ... args) {
 		registered_names().push_back(name);
         ctor_map<arguments ...>()[name] = [](arguments&& ... args) {
             return std::make_shared<type>(std::forward<arguments>(args)...);
