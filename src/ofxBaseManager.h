@@ -41,13 +41,6 @@ public:
     void remove(const std::string& name) {
 		process_map.erase(name);
     }
-
-    virtual void update(ofEventArgs& args) {
-		delta_time_ = ofGetLastFrameTime();
-        for(const auto& c : process_map) {
-            c.second->update(delta_time_);
-        }
-    }
     
     void drawGui() {
         for(const auto& c : process_map) {
@@ -83,7 +76,6 @@ protected:
     }
 
     std::map<std::string, ref> process_map;
-	double delta_time_;
 };
 }
 }
